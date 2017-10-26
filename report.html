@@ -11803,7 +11803,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 载入此项目所需要的库</span>
@@ -11827,7 +11827,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 载入波士顿房屋的数据集</span>
@@ -11892,9 +11892,17 @@ div#notebook {
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table><tr><td bgcolor=orange> **项目反馈**：这里要求用NumPy来计算，prices.std()用了pandas，可以看看两者有何不同。 </td></tr></table>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#TODO 1</span>
@@ -11956,6 +11964,48 @@ Standard deviation of prices: $165,340.28
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>&lt;font color=blue size = 3&gt; <strong>代码修改</strong> &lt;/font&gt;</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 目标：计算价值的标准差</span>
+<span class="n">std_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;Standard deviation of prices: ${:,.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">std_price</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Standard deviation of prices: $165,171.13
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-1---&#29305;&#24449;&#35266;&#23519;">&#38382;&#39064; 1 - &#29305;&#24449;&#35266;&#23519;<a class="anchor-link" href="#&#38382;&#39064;-1---&#29305;&#24449;&#35266;&#23519;">&#182;</a></h3><p>如前文所述，本项目中我们关注的是其中三个值:<code>'RM'</code>、<code>'LSTAT'</code> 和<code>'PTRATIO'</code>，对每一个数据点:</p>
 <ul>
 <li><code>'RM'</code> 是该地区中每个房屋的平均房间数量；</li>
@@ -11994,7 +12044,7 @@ Standard deviation of prices: $165,340.28
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO 2</span>
@@ -12024,8 +12074,28 @@ Standard deviation of prices: $165,340.28
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<table><tr><td bgcolor=orange> **项目反馈**：“数据集按照一定比例划分为训练集和测试集，好处是，有利于验证模型的泛化能力，防止过拟合的产生” 不准确。划分数据集无法防止过拟合。测试集只有一个（一次）用途，就是构建完最终模型后，看一下表现如何。它不能参与选择模型或者调参的过程，否则会造成[data leakage](https://www.kaggle.com/wiki/Leakage)。我们通常用验证集来调优。
+详见[不能更简单通俗的机器学习基础名词解释](https://zhuanlan.zhihu.com/p/25862224)。</td></tr></table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-2---&#22238;&#31572;:">&#38382;&#39064; 2 - &#22238;&#31572;:<a class="anchor-link" href="#&#38382;&#39064;-2---&#22238;&#31572;:">&#182;</a></h3><p>1、数据集按照一定比例划分为训练集和测试集，好处是，有利于验证模型的泛化能力，防止过拟合的产生</p>
 <p>2、模型已经见过的数据用来作为测试数据，坏处是，无法验证模型的有效性，模型的预测能力。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><font color=blue size=3> 问题 2 - 回答(修改):</p>
+<p>1、数据集之所以要按照一定比例划分为训练集和测试集，是因为模型首先要在训练集上训练，最终的表现效果需要在模型没有见过的数据集上做预测，也就是测试集。这样才能真正验证模型的有效性。</p>
+<p>2、模型已经见过的数据用来作为测试数据，坏处是，无法验证模型的有效性，模型的预测能力。&lt;/font&gt;</p>
 
 </div>
 </div>
@@ -12059,9 +12129,26 @@ Standard deviation of prices: $165,340.28
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table><tr><td bgcolor=orange> **项目反馈**：两个函数结果不同，可以再看下原因。 </td></tr></table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><font color=blue size=3>**没找到原因，performance_metric运行结果是0.923，performance_metric2运行结果是0.925.**</font></p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO 3</span>
@@ -12084,7 +12171,7 @@ Standard deviation of prices: $165,340.28
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">a</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
@@ -12119,7 +12206,7 @@ Standard deviation of prices: $165,340.28
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO 3 可选</span>
@@ -12184,7 +12271,7 @@ Standard deviation of prices: $165,340.28
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 计算这个模型的预测结果的决定系数</span>
@@ -13868,12 +13955,39 @@ RU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<table><td bgcolor=orange> **项目反馈**：你还要补充：
+“把数据分为K份” 不准确。K折交叉验证分割的是训练数据还是全部数据？（提示：reg = fit_model(X_train, y_train)）默认情况下 Kfold 是对数据按顺序切分还是随机切分？有了K次的验证结果，我们怎样运用这K次验证的结果来选出最佳参数组合的？ </td></table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-8---&#22238;&#31572;&#65306;">&#38382;&#39064; 8 - &#22238;&#31572;&#65306;<a class="anchor-link" href="#&#38382;&#39064;-8---&#22238;&#31572;&#65306;">&#182;</a></h3><ul>
 <li>K折交叉验证是：把数据分为K份，做如下操作：选择其中一份数据作为测试集，其余作为训练集。对K份数据分别做上述操作；</li>
 <li>GridSearchCV是对每一组参数组合做交叉验证，最终返回最优参数组合；</li>
 <li>‘cv<em>results</em>’能告诉我们每一组参数组合的结果，以及排名，训练所花费的时间，以及使用的参数组合等信息；</li>
 <li>网格搜索时如果不使用交叉验证，可能导致选择的参数不是最优参数。因为使用的训练数据集不同时，参数的选择有可能会不同。而交叉验证是在保证充分利用数据的前提下，来比较每一组参数的预测效果，在进行参数选择时就不会受到数据因素的影响。</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><font color=blue size=4> 问题 8 - 回答(修改)：</font></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><font color=blue size=3>K折交叉验证是：把训练数据切分为K份，默认情况下KFold是对数据进行随机切分后，做如下操作：选择其中一份数据作为验证集，其余作为训练集，在训练集上训练模型，并在验证集上验证结果，对K份数据分别做上述操作。最终把这K份验证集的结果求均值后，就是该参数下最终效果。比较各参数组合的最终结果后选出最优参数组合。</font></p>
 
 </div>
 </div>
@@ -14140,8 +14254,34 @@ Predicted selling price for Client 3&#39;s home: $930,490.91
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<table><tr><td bgcolor=orange> **项目反馈**：除了房屋本身的特征，你还需要用你在分析数据部分计算出来的统计信息（最大值，最小值，平均值，中位数等）来帮助你证明你的答案。 </td></tr></table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="&#38382;&#39064;-10---&#22238;&#31572;&#65306;">&#38382;&#39064; 10 - &#22238;&#31572;&#65306;<a class="anchor-link" href="#&#38382;&#39064;-10---&#22238;&#31572;&#65306;">&#182;</a></h3><p>客户1的房屋销售价格为：$306,337.50；客户2的房屋销售价格为：$224,342.55；客户3的房屋销售价格为：$930,490.91</p>
 <p>这样的价格合理，根据直觉判断，对‘RM’来说，该特征值越大，‘MEDV’的值会增大；对‘LSTAT’来说，该特征值越大，‘MEDV’的值会减小；对‘PTRATIO’来说，给特征值越大，‘MEDV’的值会越大。3个客户的预测值符合这个直觉判断，同时在合理的最值范围内。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><font color=blue size=3>问题 10 - 回答(修改)：</font></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><font color=blue size=3>客户1的房屋销售价格为：\$306,337.50；客户2的房屋销售价格为：\$224,342.55；客户3的房屋销售价格为：\$930,490.91。客户1的房屋销售价格要低于均值，因为其房间数属于中等偏下，同时社区的贫困指数偏高，所以放价应该低于均值和中位数水平；客户2相较于客户1来说，贫困指数更高，学生-教师比例也更高，因此房价要低于客户1，也属于合理的预测值；客户3的房间数目较多，贫困指数很低，其房价要高于平均水平（均值），但同时又低于最大值，因此也属于一个合理的范围。 </font></p>
 
 </div>
 </div>
